@@ -1,0 +1,17 @@
+name: All-In-One
+env:
+  REPO_OWNER: meroware
+  REPO_NAME: example-event-dispatcher-workflows
+  GITHUB_TOKEN: ${{ secrets.TOKEN }}
+on:
+  repository_dispatch:
+    types: [run-ping, run-pong, run-done]
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install packages
+        run: npm ci
+      - name: Run ${{ github.event.client_payload.command }}
+        run: npm run ${{ github.event.client_payload.command }}
