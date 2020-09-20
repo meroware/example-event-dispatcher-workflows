@@ -23,7 +23,7 @@ async function run(command) {
     console.log(`Recieved ${command || "No"} command`);
     switch(command) {
         case "ping":
-            payload.event_type = "run-ping";
+            payload.event_type = "run-pong";
             payload.client_payload.command = "pong";
             break;
         case "pong":
