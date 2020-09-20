@@ -45,7 +45,10 @@ async function run(command) {
     
     console.log(`Dispatching ${dispatchUrl} with paylaod`, payload);
     const res = await axios.post(dispatchUrl, payload, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: "application/vnd.github.v3+json" 
+        }
     })
     return res.status;
 
