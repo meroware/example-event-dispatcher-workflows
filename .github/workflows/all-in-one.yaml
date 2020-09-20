@@ -5,7 +5,7 @@ env:
   GITHUB_TOKEN: ${{ secrets.TOKEN }}
 on:
   repository_dispatch:
-    types: [run-ping-allineone, run-pong-allineone, run-done-allineone]
+    types: [run-ping-allinone, run-pong-allinone, run-done-allinone]
 jobs:
   job:
     runs-on: ubuntu-latest

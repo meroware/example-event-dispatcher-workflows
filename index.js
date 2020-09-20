@@ -25,11 +25,11 @@ async function run(command) {
     console.log(`Received ${command || "No"} command`);
     switch(command) {
         case "ping":
-            payload.event_type = `run-pong${isAllInOne ? '-allineone' : ''}`;
+            payload.event_type = `run-pong${isAllInOne ? '-allinone' : ''}`;
             payload.client_payload.command = "pong";
             break;
         case "pong":
-            payload.event_type = `run-done${isAllInOne ? '-allineone' : ''}`;
+            payload.event_type = `run-done${isAllInOne ? '-allinone' : ''}`;
             payload.client_payload.command = "done";
             break;
         case "done":
