@@ -1,0 +1,16 @@
+name: Ping
+env:
+  owner: meroware
+  repo: example-event-dispatcher-workflows
+on:
+  repository_dispatch:
+    types: [run-ping]
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install packages
+        run: npm ci
+      - name: Run Tests
+        run: npm run ping

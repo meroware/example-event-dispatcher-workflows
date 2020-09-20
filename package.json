@@ -1,0 +1,24 @@
+{
+  "name": "example-event-dispatcher-workflows",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ping": "node index.js ping",
+    "pong": "node index.js pong",
+    "done": "node index.js done"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meroware/example-event-dispatcher-workflows.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meroware/example-event-dispatcher-workflows/issues"
+  },
+  "homepage": "https://github.com/meroware/example-event-dispatcher-workflows#readme",
+  "dependencies": {
+    "axios": "^0.20.0"
+  }
+}
