@@ -2,6 +2,7 @@ name: Ping
 env:
   REPO_OWNER: meroware
   REPO_NAME: example-event-dispatcher-workflows
+  GITHUB_TOKEN: ${{ secrets.TOKEN }}
 on:
   repository_dispatch:
     types: [run-ping]
