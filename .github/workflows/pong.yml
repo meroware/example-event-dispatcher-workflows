@@ -3,9 +3,9 @@ env:
   REPO_OWNER: meroware
   REPO_NAME: example-event-dispatcher-workflows
   GITHUB_TOKEN: ${{ secrets.TOKEN }}
-# on:
-  # repository_dispatch:
-    # types: [run-pong] Commented out since we now use all in one workflow
+on:
+  repository_dispatch:
+    types: [run-pong]
 jobs:
   pong:
     runs-on: ubuntu-latest

@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const [,,command] = process.argv;
+const [,,command,workflowType] = process.argv;
 
 async function run(command) {
     if(!command) {
@@ -20,14 +20,16 @@ async function run(command) {
         GITHUB_TOKEN: token,
     } = process.env;
 
+    const isAllInOne = workflowType === "allinone";
+
     console.log(`Received ${command || "No"} command`);
     switch(command) {
         case "ping":
-            payload.event_type = "run-pong";
+            payload.event_type = `run-pong${isAllInOne ? '-allineone' : ''}`;
             payload.client_payload.command = "pong";
             break;
         case "pong":
-            payload.event_type = "run-done";
+            payload.event_type = `run-done${isAllInOne ? '-allineone' : ''}`;
             payload.client_payload.command = "done";
             break;
         case "done":
