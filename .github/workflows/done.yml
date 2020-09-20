@@ -4,8 +4,8 @@ env:
   REPO_NAME: example-event-dispatcher-workflows
   GITHUB_TOKEN: ${{ secrets.TOKEN }}
 on:
-  repository_dispatch:
-    types: [run-done]
+  # repository_dispatch:
+    # types: [run-done] Commented out since we now use all in one workflow
 jobs:
   done:
     runs-on: ubuntu-latest

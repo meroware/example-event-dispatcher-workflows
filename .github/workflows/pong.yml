@@ -4,8 +4,8 @@ env:
   REPO_NAME: example-event-dispatcher-workflows
   GITHUB_TOKEN: ${{ secrets.TOKEN }}
 on:
-  repository_dispatch:
-    types: [run-pong]
+  # repository_dispatch:
+    # types: [run-pong] Commented out since we now use all in one workflow
 jobs:
   pong:
     runs-on: ubuntu-latest
