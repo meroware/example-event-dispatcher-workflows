@@ -20,7 +20,7 @@ async function run(command) {
         GITHUB_TOKEN: token,
     } = process.env;
 
-    console.log(`Recieved ${command || "No"} command`);
+    console.log(`Received ${command || "No"} command`);
     switch(command) {
         case "ping":
             payload.event_type = "run-pong";
