@@ -17,21 +17,16 @@ async function run(command) {
     const {
         REPO_OWNER: owner,
         REPO_NAME: repo,
+        GITHUB_TOKEN: token,
     } = process.env;
-    
+
     console.log(`Recieved ${command || "No"} command`);
     switch(command) {
         case "ping":
-            if(!owner || !repo) {
-                throw new Error('Owner and repo required');
-            }
             payload.event_type = "run-ping";
             payload.client_payload.command = "pong";
             break;
         case "pong":
-            if(!owner || !repo) {
-                throw new Error('Owner and repo required');
-            }
             payload.event_type = "run-done";
             payload.client_payload.command = "done";
             break;
@@ -41,11 +36,17 @@ async function run(command) {
         default:
             throw new Error('Command not supported');
     }
+
+    if(!owner || !repo || !token) {
+        throw new Error('Owner and repo required');
+    }
     
     const dispatchUrl = `https://api.github.com/repos/${owner}/${repo}/dispatches`;
     
     console.log(`Dispatching ${dispatchUrl} with paylaod`, payload);
-    const res = await axios.post(dispatchUrl, payload)
+    const res = await axios.post(dispatchUrl, payload, {
+        headers: { Authorization: `Bearer ${token}` }
+    })
     return res.status;
 
 }
